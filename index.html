@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,
+    initial-scale=1.0" />
+    <link rel="shortcut icon" href="https://drive.google.com/uc?export=view&id=11KWXGKtq4ARM0Nh56olhXumrBKSQk3xb" type="image/x-icon">
+    <title>Message Me</title>
+
+    <meta name="description" content="Message Send to Soumojit Shome">
+
+    <meta itemprop="image" content="https://drive.google.com/uc?export=view&id=11KWXGKtq4ARM0Nh56olhXumrBKSQk3xb">
+
+    <meta property="og:url" content="https://soumojit-shome-message-me.vercel.app">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Message Me">
+    <meta property="og:image" content="https://drive.google.com/uc?export=view&id=11KWXGKtq4ARM0Nh56olhXumrBKSQk3xb">
+    <meta property="og:site_name" content="Message Send to Soumojit Shome">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+            font-family: 'poppins', sans-serif;
+        }
+
+        body {
+            position: relative;
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            /* background: url(bg-image.jpg); */
+            background-image: linear-gradient(rgb(112, 5, 173), rgb(182, 18, 18));
+            background-size: contain;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 650px;
+            height: 80%;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 28px;
+            margin: 0 28px;
+            border-radius: 10px;
+            box-shadow: inset -2px 2px 2px white;
+            overflow: scroll;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: #5f5d5d86;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            /* background: #ff590c; */
+            background-image: linear-gradient(45deg, rgb(239, 255, 14), rgb(182, 18, 18));
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ffffff;
+        }
+
+        .form-title {
+            font-size: 26px;
+            font-weight: 600;
+            text-align: center;
+            padding-bottom: 6px;
+            color: white;
+            text-shadow: 2px 2px 2px black;
+            border-bottom: solid 1px white;
+        }
+
+        .main-user-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 20px 0;
+        }
+
+        .user-input-box:nth-child(2n) {
+            justify-content: end;
+        }
+
+        .user-input-box {
+            display: flex;
+            flex-wrap: wrap;
+            width: 50%;
+            padding-bottom: 15px;
+        }
+
+        .user-input-box label {
+            width: 95%;
+            color: white;
+            font-size: 20px;
+            font-weight: 400;
+            margin: 5px 0;
+        }
+
+        .user-input-box input {
+            height: 40px;
+            width: 95%;
+            border-radius: 7px;
+            outline: none;
+            border: 1px solid grey;
+            padding: 0 10px;
+        }
+
+        .user-input-box textarea {
+            height: 100px;
+            width: 95%;
+            border-radius: 7px;
+            outline: none;
+            border: 1px solid grey;
+            padding: 3px 10px;
+        }
+
+        .gender-title {
+            color: white;
+            font-size: 24px;
+            font-weight: 600;
+            border-bottom: 1px solid white;
+        }
+
+        .gender-category {
+            margin: 15px 0;
+            color: white;
+        }
+
+        .gender-category label {
+            padding: 0 20px 0 5px;
+        }
+
+        .gender-category label,
+        .gender-category input,
+        .form-submit-btn button {
+            cursor: pointer;
+        }
+
+        .form-submit-btn {
+            margin-top: 40px;
+        }
+
+        .form-submit-btn button {
+            display: block;
+            width: 100%;
+            margin-top: 10px;
+            font-size: 20px;
+            padding: 10px;
+            border: none;
+            border-radius: 3px;
+            color: rgb(209, 209, 209);
+            background-image: linear-gradient(rgb(112, 5, 173), rgb(182, 18, 18));
+        }
+
+        .form-submit-btn button:hover {
+            background-image: linear-gradient(45deg, rgb(112, 5, 173), rgb(182, 18, 18));
+        }
+
+        .designedby {
+            /* border: 5px solid black; */
+            color: aliceblue;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        @media(max-width: 600px) {
+            .container {
+                min-width: 280px;
+            }
+
+            .user-input-box {
+                margin-bottom: 12px;
+                width: 100%;
+            }
+
+            .user-input-box:nth-child(2n) {
+                justify-content: space-between;
+            }
+
+            .gender-category {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+            }
+
+            /* .main-user-info {
+                max-height: auto;
+                overflow: auto;
+            } */
+
+            .main-user-info::-webkit-scrollbar {
+                width: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="form-title">Send Message</h1>
+        <form name="submit-to-google-sheet">
+            <div class="main-user-info">
+
+                <div class="user-input-box">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" name="entry.358328332" required placeholder="Enter Full Name" />
+                </div>
+
+                <!-- <div class="user-input-box">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" placeholder="Enter Username" />
+                </div> -->
+
+                <div class="user-input-box">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="entry.1355260504" required placeholder="Enter Email" />
+                </div>
+
+                <div class="user-input-box">
+                    <label for="phoneNumber">Phone Number</label>
+                    <input type="text" id="phoneNumber" name="entry.542089755" required
+                        placeholder="Enter Phone Number" />
+                </div>
+
+                <div class="user-input-box">
+                    <label for="message">Message</label>
+                    <textarea type="text" id="message" name="entry.622000400" required placeholder="Type Message"
+                        rows="6" cols="50"></textarea>
+                </div>
+
+                <!-- <div class="user-input-box">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter Password" />
+                </div> -->
+
+                <!-- <div class="user-input-box">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" />
+                </div> -->
+
+            </div>
+
+            <!-- <div class="gender-details-box">
+                <span class="gender-title">Gender</span>
+                <div class="gender-category">
+                    <input type="radio" name="gender" id="male">
+                    <label for="male">Male</label>
+                    <input type="radio" name="gender" id="female">
+                    <label for="female">Female</label>
+                    <input type="radio" name="gender" id="other">
+                    <label for="other">Other</label>
+                </div>
+            </div> -->
+
+            <div class="designedby">Designed By Soumojit Shome</div>
+
+            <div class="form-submit-btn">
+                <button type="submit" value="Register" class="btn" onclick="myFunction()" id="submit-btn">
+                    Submit
+                </button>
+                <span id="success"></span>
+            </div>
+
+        </form>
+        <script>
+            function myFunction() {
+                const scriptURL = 'https://docs.google.com/forms/d/e/1FAIpQLScfotvuJaezn_lr7VuW-uVlJfTZ2tLFZ-CvY-JLMu9tZCnSgQ/formResponse'
+                const form = document.forms['submit-to-google-sheet']
+                const success = document.getElementById('success');
+                form.addEventListener('submit', e => {
+                    e.preventDefault()
+                    fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                        .then(response => console.log('Success!', response))
+
+
+                        .catch(error => console.error('Error!', error.message))
+
+                })
+
+                success.style.fontSize = "20px";
+                success.style.color = "white";
+
+                document.getElementById("submit-btn").style.display = 'none';
+                success.innerHTML = "...Please Wait...";
+                setTimeout(() => {
+                    form.reset()
+                    success.innerHTML = "";
+                    success.innerHTML = "Data Submit Successfully";
+                }, 2000);
+
+            }
+        </script>
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
