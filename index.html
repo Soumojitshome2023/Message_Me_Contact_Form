@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,
-    initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="shortcut icon" href="https://drive.google.com/uc?export=view&id=11KWXGKtq4ARM0Nh56olhXumrBKSQk3xb"
         type="image/x-icon">
     <title>Message Me | Soumojit Shome</title>
@@ -53,7 +53,7 @@
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-size: contain;
-            
+
         }
 
         .container {
@@ -65,10 +65,12 @@
             height: fit-content;
             background: rgba(0, 0, 0, 0.473);
             padding: 15px;
+            padding-bottom: 50px;
             margin: 0 10px;
             border-radius: 10px;
             box-shadow: inset -2px 2px 2px white;
             /* overflow: scroll; */
+            text-align: center;
         }
 
         ::-webkit-scrollbar {
@@ -93,6 +95,7 @@
         }
 
         .form-title {
+            /* border: 5px solid green; */
             font-size: 26px;
             font-weight: 600;
             text-align: center;
@@ -170,7 +173,8 @@
         }
 
         .form-submit-btn {
-            margin-top: 40px;
+            /* border: 5px solid yellow; */
+            margin-top: 5px;
         }
 
         input:focus {
@@ -188,7 +192,7 @@
         #submit-btn {
             display: block;
             width: 100%;
-            margin-top: 10px;
+            margin-top: 5px;
             font-size: 20px;
             padding: 10px;
             border: none;
@@ -230,11 +234,18 @@
             color: aliceblue;
             text-align: center;
             margin-top: 10px;
+            font-size: 14px;
         }
 
         @media(max-width: 600px) {
             .container {
-                min-width: 280px;
+                /* min-width: 280px; */
+                min-width: fit-content;
+            }
+
+            .form-title {
+
+                font-size: 20px;
             }
 
             .user-input-box {
