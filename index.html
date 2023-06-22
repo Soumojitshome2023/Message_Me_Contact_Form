@@ -34,11 +34,13 @@
         }
 
         body {
+            /* border: 5px solid yellow; */
             position: relative;
+            min-height: 100vh;
             display: flex;
             /* height: 100vh; */
             height: fit-content;
-            padding: 40px 0px;
+            padding: 10px 0px;
             justify-content: center;
             align-items: center;
             /* background: url(bg-image.jpg); */
@@ -71,6 +73,9 @@
             box-shadow: inset -2px 2px 2px white;
             /* overflow: scroll; */
             text-align: center;
+            box-shadow:
+                0 0 35px 0px #ffee00,
+                0 0 35px 0px #ffffff;
         }
 
         ::-webkit-scrollbar {
@@ -352,6 +357,7 @@
             save("fullName");
             save("phoneNumber");
             save("email");
+            save("message");
 
 
             // =========================Form Submit=========================
@@ -390,7 +396,7 @@
                     // success.innerHTML = "";
                     location.reload();
                     // document.getElementById("submitbtn").style.display = '';
-                }, 10000);
+                }, 20000);
             }
 
 
@@ -409,20 +415,59 @@
                 event.preventDefault();
             });
 
+
             // Add event listener to the form's input fields and textarea
-            var inputs = form.querySelectorAll("input[required], textarea[required]");
-            inputs.forEach(function (input) {
-                input.addEventListener("input", function () {
-                    // Check if all required fields have values
-                    var allFieldsFilled = Array.from(inputs).every(function (input) {
-                        return input.value.trim() !== "";
-                    });
+            // var inputs = form.querySelectorAll("input[required], textarea[required]");
+            // inputs.forEach(function (input) {
+            //     input.addEventListener("input", function () {
+            //         // Check if all required fields have values
+            //         var allFieldsFilled = Array.from(inputs).every(function (input) {
+            //             return input.value.trim() !== "";
+            //         });
 
-                    // Enable or disable the submit button based on the validation result
-                    submitButton.disabled = !allFieldsFilled;
+            //         // Enable or disable the submit button based on the validation result
+            //         submitButton.disabled = !allFieldsFilled;
+            //     });
+            // });
+
+
+
+            let inputs;
+            let stat;
+            let flag;
+
+            setInterval(() => {
+
+                flag = true;
+                // submitButton.disabled = false;
+                // submitButton.disabled = true;
+
+                inputs = form.querySelectorAll("input[required], textarea[required]");
+
+                inputs.forEach(function (input, index) {
+
+                    inputs = form.querySelectorAll("input[required], textarea[required]");
+
+                    stat = inputs[index].value.trim() !== "";
+
+                    if (stat == false) {
+                        // submitButton.disabled = true;
+                        flag = false;
+
+
+                    }
                 });
-            });
 
+                if (flag == false){
+                    submitButton.disabled = true;
+                }
+                else{
+                    submitButton.disabled = false;
+
+                }
+
+
+            }, 500);
 
 
             // =========================Form Auto Save=========================
@@ -446,7 +491,7 @@
                         localStorage.setItem(idv, a);
                     }
 
-                }, 2000);
+                }, 1000);
 
             }
 
