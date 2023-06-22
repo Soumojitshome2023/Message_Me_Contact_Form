@@ -5,9 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,
     initial-scale=1.0" />
-    <link rel="shortcut icon" href="https://drive.google.com/uc?export=view&id=11KWXGKtq4ARM0Nh56olhXumrBKSQk3xb" type="image/x-icon">
-    <title>Message Me</title>
+    <link rel="shortcut icon" href="https://drive.google.com/uc?export=view&id=11KWXGKtq4ARM0Nh56olhXumrBKSQk3xb"
+        type="image/x-icon">
+    <title>Message Me | Soumojit Shome</title>
 
+    <!-- =========================Meta Tags========================= -->
     <meta name="description" content="Message Send to Soumojit Shome">
 
     <meta itemprop="image" content="https://drive.google.com/uc?export=view&id=11KWXGKtq4ARM0Nh56olhXumrBKSQk3xb">
@@ -18,6 +20,8 @@
     <meta property="og:image" content="https://drive.google.com/uc?export=view&id=11KWXGKtq4ARM0Nh56olhXumrBKSQk3xb">
     <meta property="og:site_name" content="Message Send to Soumojit Shome">
 
+
+    <!-- =========================Style Tag========================= -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 
@@ -36,7 +40,15 @@
             justify-content: center;
             align-items: center;
             /* background: url(bg-image.jpg); */
-            background-image: linear-gradient(rgb(112, 5, 173), rgb(182, 18, 18));
+            /* background-image: linear-gradient(rgb(112, 5, 173), rgb(182, 18, 18)); */
+            /* background-image: linear-gradient(#fffbd5, #b20a2c); */
+            background: #1F1C2C;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to bottom, #928DAB, #1F1C2C);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to bottom, #928DAB, #1F1C2C);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
             background-size: contain;
         }
 
@@ -64,12 +76,13 @@
         /* Handle */
         ::-webkit-scrollbar-thumb {
             /* background: #ff590c; */
-            background-image: linear-gradient(45deg, rgb(239, 255, 14), rgb(182, 18, 18));
+            /* background-image: linear-gradient(45deg, rgb(239, 255, 14), rgb(182, 18, 18)); */
+            background-image: linear-gradient(45deg, #ab968d, #f9fd00);
         }
 
         /* Handle on hover */
         ::-webkit-scrollbar-thumb:hover {
-            background: #ffffff;
+            background-image: linear-gradient(45deg, #e98c00, #7800af);
         }
 
         .form-title {
@@ -152,7 +165,19 @@
             margin-top: 40px;
         }
 
-        .form-submit-btn button {
+        input:focus {
+            box-shadow:
+                0 0 15px 0px #a56b15,
+                0 0 15px 0px #848578;
+        }
+
+        textarea:focus {
+            box-shadow:
+                0 0 15px 0px #a56b15,
+                0 0 15px 0px #848578;
+        }
+
+        #submit-btn {
             display: block;
             width: 100%;
             margin-top: 10px;
@@ -160,12 +185,36 @@
             padding: 10px;
             border: none;
             border-radius: 3px;
-            color: rgb(209, 209, 209);
-            background-image: linear-gradient(rgb(112, 5, 173), rgb(182, 18, 18));
+            color: black;
+            background-image: linear-gradient(45deg, rgb(112, 5, 173), white, rgb(182, 18, 18));
         }
 
-        .form-submit-btn button:hover {
-            background-image: linear-gradient(45deg, rgb(112, 5, 173), rgb(182, 18, 18));
+        #submit-btn[disabled] {
+            background-image: none;
+            color: rgb(116, 116, 116);
+        }
+
+        #submit-btn:hover {
+            background-image: linear-gradient(45deg, rgb(167, 170, 0), white, rgb(22, 185, 0));
+        }
+
+        #submit-btn:active {
+            background-image: linear-gradient(90deg, rgb(98, 0, 255), pink, rgb(21, 255, 0));
+            box-shadow:
+                0 0 15px 0px #a56b15,
+                0 0 15px 0px #848578;
+        }
+
+
+        #submit-btn[disabled]:hover {
+            /* Remove or override hover styles */
+            background-image: none;
+            cursor: not-allowed;
+        }
+
+        #submit-btn[disabled]:active {
+            background-image: none;
+            box-shadow: none;
         }
 
         .designedby {
@@ -205,15 +254,18 @@
             }
         }
     </style>
+
+
 </head>
 
 <body>
     <div class="container">
         <h1 class="form-title">Send Message</h1>
-        <form name="submit-to-google-sheet">
+        <form name="submit-to-google-sheet" id="myForm">
             <div class="main-user-info">
 
                 <div class="user-input-box">
+
                     <label for="fullName">Full Name</label>
                     <input type="text" id="fullName" name="entry.358328332" required placeholder="Enter Full Name" />
                 </div>
@@ -225,7 +277,7 @@
 
                 <div class="user-input-box">
                     <label for="email">Email</label>
-                    <input type="email" id="email" name="entry.1355260504" required placeholder="Enter Email" />
+                    <input type="text" id="email" name="entry.1355260504" required placeholder="Enter Email" />
                 </div>
 
                 <div class="user-input-box">
@@ -267,14 +319,23 @@
             <div class="designedby">Designed By Soumojit Shome</div>
 
             <div class="form-submit-btn">
-                <button type="submit" value="Register" class="btn" onclick="myFunction()" id="submit-btn">
-                    Submit
-                </button>
+                <button type="submit" value="Register" class="btn" onclick="myFunction()" id="submit-btn"
+                    disabled>Submit</button>
                 <span id="success"></span>
             </div>
 
         </form>
+
         <script>
+
+            // ===============Form Auto Save Function Call===============
+
+            save("fullName");
+            save("phoneNumber");
+            save("email");
+
+
+            // =========================Form Submit=========================
             function myFunction() {
                 const scriptURL = 'https://docs.google.com/forms/d/e/1FAIpQLScfotvuJaezn_lr7VuW-uVlJfTZ2tLFZ-CvY-JLMu9tZCnSgQ/formResponse'
                 const form = document.forms['submit-to-google-sheet']
@@ -295,16 +356,95 @@
                 document.getElementById("submit-btn").style.display = 'none';
                 success.innerHTML = "...Please Wait...";
                 setTimeout(() => {
-                    form.reset()
+
+                    document.getElementById("message").value = "";
+                    // form.reset()
                     success.innerHTML = "";
                     success.innerHTML = "Data Submit Successfully";
                 }, 2000);
 
+                setTimeout(() => {
+                    success.innerHTML = `Thank you so much ${document.getElementById("fullName").value}`;
+                }, 4000);
+
+                setTimeout(() => {
+                    // success.innerHTML = "";
+                    location.reload();
+                    // document.getElementById("submitbtn").style.display = '';
+                }, 10000);
             }
+
+
+
+            // ===================Disable submit button===================
+
+            // disable the submit button until all required fields have values
+            // Get the form and the submit button
+
+            var form = document.getElementById("myForm");
+            var submitButton = document.getElementById("submit-btn");
+
+            // Add event listener to the form's submit event
+            form.addEventListener("submit", function (event) {
+                // Prevent the form from submitting
+                event.preventDefault();
+            });
+
+            // Add event listener to the form's input fields and textarea
+            var inputs = form.querySelectorAll("input[required], textarea[required]");
+            inputs.forEach(function (input) {
+                input.addEventListener("input", function () {
+                    // Check if all required fields have values
+                    var allFieldsFilled = Array.from(inputs).every(function (input) {
+                        return input.value.trim() !== "";
+                    });
+
+                    // Enable or disable the submit button based on the validation result
+                    submitButton.disabled = !allFieldsFilled;
+                });
+            });
+
+
+
+            // =========================Form Auto Save=========================
+
+
+            function save(idv) {
+
+                if (localStorage.getItem(idv) != null) {
+
+                    let b = document.getElementById(idv);
+                    b.value = localStorage.getItem(idv);
+                }
+
+                setInterval(() => {
+
+                    if (document.getElementById(idv).value != localStorage.getItem(idv)) {
+
+                        console.log("data update");
+
+                        let a = document.getElementById(idv).value;
+                        localStorage.setItem(idv, a);
+                    }
+
+                }, 2000);
+
+            }
+
+
         </script>
+
+
+
     </div>
+
+
+
+
+
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
 </body>
 
 </html>
